@@ -1,0 +1,208 @@
+// 1. VARIABLES: Paleta de colores y ajustes generales
+$primary-color: #f89ef5;       // Azul para acciones principales
+$bg-color: #f4f7f6;            // Fondo general de la página
+$text-color: #333333;
+$light-text: #888888;
+$white: #ffffff;
+$success-color: #2ecc71;       // Verde para tareas completadas
+$danger-color: #e74c3c;        // Rojo para eliminar tareas
+$border-radius: 8px;
+$transition: 0.3s ease;
+
+// 2. MIXINS: Bloques de código reutilizables
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// 3. ESTILOS BASE
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: $bg-color;
+  color: $text-color;
+  @include flex-center;
+  min-height: 100vh; // Ocupa toda la altura de la pantalla
+  padding: 20px;
+}
+
+// 4. ESTRUCTURA PRINCIPAL (Anidamiento SASS)
+.container {
+  background-color: $white;
+  width: 100%;
+  max-width: 450px;
+  padding: 30px;
+  border-radius: $border-radius;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: $primary-color;
+  }
+}
+
+.mensaje {
+  text-align: center;
+  color: $success-color;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  min-height: 20px; // Evita que el diseño salte si el mensaje está vacío
+}
+
+.formulario {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+
+  input {
+    flex: 1; // Toma todo el espacio disponible
+    padding: 10px 15px;
+    border: 1px solid #cccccc;
+    border-radius: $border-radius;
+    font-size: 1rem;
+    outline: none;
+    transition: border $transition;
+
+    &:focus {
+      border-color: $primary-color;
+    }
+  }
+
+  button {
+    padding: 10px 20px;
+    background-color: $primary-color;
+    color: $white;
+    border: none;
+    border-radius: $border-radius;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color $transition;
+
+    &:hover {
+      // Usamos la función darken() nativa de SASS
+      background-color: darken($primary-color, 10%); 
+    }
+  }
+}
+
+.filtros {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 10px;
+
+  button {
+    background: none;
+    border: none;
+    color: $light-text;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    transition: color $transition;
+
+    &:hover {
+      color: $primary-color;
+    }
+
+    // Estilo para el botón seleccionado
+    &.filtro-activo {
+      color: $primary-color;
+      font-weight: bold;
+      border-bottom: 2px solid $primary-color;
+    }
+  }
+}
+
+#listaTareas {
+  list-style: none;
+
+  // 5. ESTILOS DINÁMICOS (Para los elementos que creará tu JS)
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    border-radius: $border-radius;
+    border-left: 4px solid $primary-color; // Indicador visual izquierdo
+    transition: all $transition;
+
+    // Clase que tu JS debe agregar cuando una tarea se marque como lista
+    &.completada {
+      border-left-color: $success-color;
+      opacity: 0.7;
+      
+      span {
+        text-decoration: line-through; // Tacha el texto
+        color: $light-text;
+      }
+    }
+
+    span {
+      flex: 1;
+      cursor: pointer;
+    }
+
+    // Botón hipotético para borrar la tarea individualmente
+    .btn-eliminar {
+      background-color: $danger-color;
+      color: $white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      
+      &:hover {
+        background-color: darken($danger-color, 10%);
+      }
+    }
+  }
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 450px;
+  
+  .footer-content {
+    background: rgba(255, 255, 255, 0.4); // Fondo semi-transparente
+    padding: 12px 20px;
+    border-radius: $border-radius;
+    backdrop-filter: blur(8px); // Efecto de vidrio esmerilado
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+    p {
+      margin: 0;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #555555;
+    }
+  }
+}
+
+// 7. ANIMACIONES KEYFRAMES
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

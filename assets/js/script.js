@@ -132,7 +132,7 @@ function renderizar() {
 
     // Creamos un botón para eliminar la tarea
     const btnEliminar = document.createElement('button');
-    btnEliminar.textContent = ' X ';               // Ícono de papelera
+    btnEliminar.textContent = ' ❌ ';               // Ícono de papelera
     btnEliminar.className = 'eliminar';            // Clase para estilos
     // Al hacer clic en eliminar:
     btnEliminar.addEventListener('click', () => {
@@ -147,7 +147,7 @@ function renderizar() {
 //
     // Creamos un botón para modificar el estado de la tarea
     const btnEstado = document.createElement('button');
-    btnEstado.textContent = 'Chek';               // Ícono de papelera
+    btnEstado.textContent = '✅';               // Ícono de papelera
     btnEstado.className = 'modificar';            // Clase para estilos
     // Al hacer clic en eliminar:
     btnEstado.addEventListener('click', () => {
