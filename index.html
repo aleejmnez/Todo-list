@@ -1,34 +1,47 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My task</title>
-   <link rel="stylesheet" href="assets/css/style.css">
-  
+  <title>My tasks</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .container {
+      flex: 1;
+    }
+    footer {
+      margin-top: auto;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <h1>To-do list</h1>
 
-    <!-- Mensaje de bienvenida temporal (solo una vez por sesión) -->
-    <div id="bienvenida" class="mensaje"></div>
+    <!-- Mensaje de bienvenida (solo una vez por sesión) -->
+    <div id="welcomeMessage" class="mensaje"></div>
 
     <!-- Formulario para agregar tarea -->
     <div class="formulario">
-      <input type="text" id="txtTarea" placeholder="Add new task...">
-      <button id="btnAgregar">Add</button>
+      <input type="text" id="taskInput" placeholder="Add new task...">
+      <button id="addButton">Add</button>
     </div>
 
     <!-- Botones de filtro -->
     <div class="filtros">
-      <button data-filtro="todas" class="filtro-activo">All task</button>
-      <button data-filtro="pendientes">To-do</button>
-      <button data-filtro="completadas">Done</button>
+      <button data-filter="all" class="filtro-activo">All tasks</button>
+      <button data-filter="pending">To-do</button>
+      <button data-filter="completed">Done</button>
     </div>
 
     <!-- Lista de tareas -->
-    <ul id="listaTareas"></ul>
+    <ul id="taskList"></ul>
   </div>
 
   <footer>
@@ -38,7 +51,5 @@
   </footer>
 
   <script src="assets/js/script.js"></script>
-
-
 </body>
 </html>

@@ -13,12 +13,18 @@ body {
   align-items: center;
   min-height: 100vh;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
 }
 
 .container {
   background-color: #ffffff;
   width: 100%;
+  flex: 1;
   max-width: 450px;
+  max-height: 700px;
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -139,6 +145,7 @@ footer {
   text-align: center;
   width: 100%;
   max-width: 450px;
+  margin-top: auto;
 }
 footer .footer-content {
   background: rgba(255, 255, 255, 0.4);
