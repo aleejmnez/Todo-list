@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Tareas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Lista de Tareas</h1>
+
+    <!-- Mensaje de bienvenida temporal (solo una vez por sesión) -->
+    <div id="bienvenida" class="mensaje"></div>
+
+    <!-- Formulario para agregar tarea -->
+    <div class="formulario">
+      <input type="text" id="txtTarea" placeholder="Nueva tarea...">
+      <button id="btnAgregar">Agregar</button>
+    </div>
+
+    <!-- Botones de filtro -->
+    <div class="filtros">
+      <button data-filtro="todas" class="filtro-activo">Todas</button>
+      <button data-filtro="pendientes">Pendientes</button>
+      <button data-filtro="completadas">Completadas</button>
+    </div>
+
+    <!-- Lista de tareas -->
+    <ul id="listaTareas"></ul>
+  </div>
+
+  <script src="/Module JS/Actividades_JS/Workspace/assets/js/script.js"></script>
+</body>
+</html>
